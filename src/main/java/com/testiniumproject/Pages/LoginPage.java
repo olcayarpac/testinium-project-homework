@@ -19,6 +19,7 @@ public class LoginPage {
   public void doLogin(String email, String password) {
     System.out.println("Login process started");
     openLoginPage();
+    // fill the login form and submit
     driver.findElement(By.name("kullanici")).sendKeys(email);
     driver.findElement(By.name("sifre")).sendKeys(password);
     driver.findElement(By.name("formlogin")).submit();
@@ -26,6 +27,7 @@ public class LoginPage {
 
   public boolean isLoggedIn(){
     this.openLoginPage();
+    // if there is no formLogin element in page, it means we are logged in
     if (driver.findElements(By.name("formlogin")).isEmpty()){
       return true;
     }
